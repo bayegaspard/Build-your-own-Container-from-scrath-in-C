@@ -108,7 +108,6 @@ sysbench --num-threads=16 --test=fileio --file-total-size=10G
 sysbench --test=threads --thread-locks=10 --max-time=60 run
 
 ```
-- See benchmark report document for details of the benchmark.
 
 # References
 - https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces

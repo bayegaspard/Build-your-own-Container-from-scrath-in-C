@@ -1,5 +1,5 @@
 # Create Your Own Container using C
-### Author : Baye Gaspard
+
 My complete source code and related files can be found here
 ###  Create child process
 - To create a child process we have to create a child function with its own `pid` such that the child thinks that there is no other process runing.We do that by calling the `clone()` function with the  `CLONE_NEWPID` flag.We can also use a different system call called `unshare` to do similar task.Once we call `clone()`,  is called with the flag added, the new process  starts within a new `PID namespace`, under a new `process tree`.

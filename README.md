@@ -1,5 +1,5 @@
 # Create Your Own Container using C
-
+### Author : Baye Gaspard
 My complete source code and related files can be found here
 ###  Create child process
 - To create a child process we have to create a child function with its own `pid` such that the child thinks that there is no other process runing.We do that by calling the `clone()` function with the  `CLONE_NEWPID` flag.We can also use a different system call called `unshare` to do similar task.Once we call `clone()`,  is called with the flag added, the new process  starts within a new `PID namespace`, under a new `process tree`.
@@ -90,6 +90,8 @@ mount -t ext4 /dev/loop1 /mnt
 ``` 
 - We verify using the `mount | grep mnt`
 ![](https://i.imgur.com/fGCVqj9.png)
+- We can see that there is a new file created and all works.
+![](https://i.imgur.com/teFhg3A.png)
 
 ### Benchmark [ Your container, host machine, LXC, Docker ]
 - I benchmarked on ` cpu, memory, fileio, threading` using the following commands respectively:
@@ -108,6 +110,12 @@ sysbench --num-threads=16 --test=fileio --file-total-size=10G
 sysbench --test=threads --thread-locks=10 --max-time=60 run
 
 ```
+```
+sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw cleanup 
+```
+
+- See benchmark report document for details of the benchmark.
+- Also for testing process, especially for conatiner, we need to place the different benchmark commands in the system function `system("Benchmark commands here")`, and run.The different commands can be found in the document report. or the one provided above.
 
 # References
 - https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces

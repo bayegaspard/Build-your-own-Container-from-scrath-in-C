@@ -90,6 +90,8 @@ mount -t ext4 /dev/loop1 /mnt
 ``` 
 - We verify using the `mount | grep mnt`
 ![](https://i.imgur.com/fGCVqj9.png)
+- We can see that there is a new file created and all works.
+![](https://i.imgur.com/teFhg3A.png)
 
 ### Benchmark [ Your container, host machine, LXC, Docker ]
 - I benchmarked on ` cpu, memory, fileio, threading` using the following commands respectively:
@@ -108,7 +110,12 @@ sysbench --num-threads=16 --test=fileio --file-total-size=10G
 sysbench --test=threads --thread-locks=10 --max-time=60 run
 
 ```
+```
+sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw cleanup 
+```
+
 - See benchmark report document for details of the benchmark.
+- Also for testing process, especially for conatiner, we need to place the different benchmark commands in the system function `system("Benchmark commands here")`, and run.The different commands can be found in the document report. or the one provided above.
 
 # References
 - https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces

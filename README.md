@@ -97,23 +97,21 @@ mount -t ext4 /dev/loop1 /mnt
 
 ### Benchmark [ Your container, host machine, LXC, Docker ]
 - I benchmarked on ` cpu, memory, fileio, threading` using the following commands respectively:
-```
-sysbench --test=cpu --cpu-max-prime=2000000 --num-threads=120 run
+- In the `container.c` it is commented make sure you uncomment each section each time you want to test for a specific metric.
+- After uncommenting , you can compliewith the command `gcc -o outputfilename -w containerfilename.c` and then easily run using the command : `sudo ./outputfilename`
+- Note that my host is on a virtual machine so the performance metrics could be impacted by this setting as well.
 
 ```
-```
-sysbench --test=memory --num-threads=140 --memory-total-size=10G run
-```
-```
-sysbench --num-threads=16 --test=fileio --file-total-size=10G 
---file-test-mode=rndrw prepare
-```
-```
-sysbench --test=threads --thread-locks=10 --max-time=60 run
-
-```
-```
-sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw cleanup 
+//cpu uncomment
+// system("sysbench --test=cpu --cpu-max-prime=20000 run");
+// Memory
+//system("sysbench --test=memory --num-threads=140 --memory-total-size=10G run");
+//file io
+//system(" sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw pre>
+//system(" sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw run>
+//system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw clea>
+//threading
+//system("sysbench --test=threads --thread-locks=10 --max-time=60 run");
 ```
 
 - See benchmark report document for details of the benchmark.

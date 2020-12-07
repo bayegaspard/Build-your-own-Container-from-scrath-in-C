@@ -146,3 +146,4 @@ hannel=Docker
 - https://www.sciencedirect.com/science/article/pii/
 - https://minervadb.com/index.php/2018/03/27/benchmarking-cpu-memory-file-i-o-and-mutex-performance-using-sysbench/
 - https://wiki.gentoo.org/wiki/Sysbench
+- https://containersummit.io/events/nyc-2016/videos/building-containers-in-pure-bash-and-c

@@ -1,6 +1,9 @@
 # Create Your Own Container in C
-
-###  Create child process
+The final version of the code is found in container.c with all the different steps below in one file.
+To run this file use the command :`gcc -o <outputfilename> -w <cfilename.c>`
+Then exceute using the command `sudo ./outputfilename cmd` where cmd is the different linus commands you are testing against like `ls -l` to list files and see groups and users in UTC, `ip a` to see the networking interfaces, `hostname` to see the hostname of the conatainer, and so on.
+## Below I will explain the different parts of the code snippet.
+ ###  Create child process
 - To create a child process we have to create a child function with its own `pid` such that the child thinks that there is no other process runing.We do that by calling the `clone()` function with the  `CLONE_NEWPID` flag.We can also use a different system call called `unshare` to do similar task.Once we call `clone()`,  is called with the flag added, the new process  starts within a new `PID namespace`, under a new `process tree`.
 - We can add many flags to the clone() function depending on what we want to be isolated from the containter point of view.
 ```

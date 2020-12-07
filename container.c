@@ -30,23 +30,18 @@ static int child_exec(void *stuff)
         }
         
   */  
-
-system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw cleanup ");
-
-
-
+//cpu uncomment
+// system("sysbench --test=cpu --cpu-max-prime=20000 run");
+// Memory
+//system("sysbench --test=memory --num-threads=140 --memory-total-size=10G run");
+//file io
+system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw prepare");
+//system(" sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw run");
+//system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw cleanup ");
+//threading
+//system("sysbench --test=threads --thread-locks=10 --max-time=60 run");
         
-//        if (umount("/proc", 0) != 0) {
-  //              fprintf(stderr, "failed unmount /proc %s\n",
-    //                    strerror(errno));
-      //          exit(-1);
-     //   }
-      //  if (mount("proc", "/proc", "proc", 0, "") != 0) {
-       //         fprintf(stderr, "failed mount /proc %s\n",
-        //                strerror(errno));
-         //       exit(-1);
-    //    }
-        
+
 
 
 
@@ -80,7 +75,7 @@ int main(int argc, char **argv)
         struct clone_args args;
         args.argv = &argv[1];
 
-        int clone_flags = CLONE_NEWUSER|  CLONE_NEWPID|CLONE_NEWNS | CLONE_NEWUTS| SIGCHLD;
+        int clone_flags = CLONE_NEWUSER|CLONE_NEWNET  |CLONE_NEWPID|CLONE_NEWNS | CLONE_NEWUTS| SIGCHLD; //all namespaces listed
 
         // the result of this call is that our child_exec will be run in another
         // process returning it's pid

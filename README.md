@@ -94,6 +94,22 @@ mount -t ext4 /dev/loop1 /mnt
 ![](https://i.imgur.com/fGCVqj9.png)
 - We can see that there is a new file created and all works.
 ![](https://i.imgur.com/teFhg3A.png)
+- I also went further to do another PoC for mountiung
+- This is done with C code below :
+```
+if (mount("none", "/mnt", "tmpfs", 0, "") != 0) {
+                fprintf(stderr, "failed to mount mnt %s\n",
+                        strerror(errno));
+                exit(-1);
+        }
+    
+
+``` 
+- Output after running the command : sudo ./outputfilename mount | grep none
+```
+none on /mnt type tmpfs (rw,relatime)
+
+```
 
 ### Benchmark [ Your container, host machine, LXC, Docker ]
 - I benchmarked on ` cpu, memory, fileio, threading` using the following commands respectively:

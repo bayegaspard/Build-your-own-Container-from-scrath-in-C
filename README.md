@@ -110,6 +110,7 @@ if (mount("none", "/mnt", "tmpfs", 0, "") != 0) {
 none on /mnt type tmpfs (rw,relatime)
 
 ```
+![](https://i.imgur.com/6xo0wdN.png)
 
 ### Benchmark [ Your container, host machine, LXC, Docker ]
 - I benchmarked on ` cpu, memory, fileio, threading` using the following commands respectively:

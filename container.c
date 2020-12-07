@@ -35,7 +35,7 @@ static int child_exec(void *stuff)
 // Memory
 //system("sysbench --test=memory --num-threads=140 --memory-total-size=10G run");
 //file io
-system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw prepare");
+//system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw prepare");
 //system(" sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw run");
 //system("sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=rndrw cleanup ");
 //threading

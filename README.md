@@ -122,6 +122,10 @@ sysbench --num-threads=16 --test=fileio --file-total-size=10G --file-test-mode=r
 # References
 - https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces
 - https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-sysbench
+
+- https://people.redhat.com/pladd/NYRHUG_Container_Technology.pdf
+- https://www.youtube.com/watch?v=sK5i-N34im8&feature=youtu.be&ab_c
+hannel=Docker
 - https://www.sciencedirect.com/science/article/pii/
 - https://minervadb.com/index.php/2018/03/27/benchmarking-cpu-memory-file-i-o-and-mutex-performance-using-sysbench/
 - https://wiki.gentoo.org/wiki/Sysbench
